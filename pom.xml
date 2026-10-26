@@ -16,6 +16,11 @@
         <java.version>1.8</java.version>
     </properties>
 
+    <organization>
+        <name>LittleShoot</name>
+        <url>http://littleproxy.org</url>
+    </organization>
+
     <licenses>
         <license>
             <name>The Apache Software License, Version 2.0</name>
@@ -253,4 +258,26 @@
             </plugin>
         </plugins>
     </build>
+
+    <developers>
+        <developer>
+            <id>afisk</id>
+            <name>Adam fisk</name>
+            <email>a@littleshoot.org</email>
+            <organization>LittleShoot</organization>
+            <organizationUrl>http://www.littleshoot.org/</organizationUrl>
+            <roles><role>Developer</role></roles>
+            <timezone>-5</timezone>
+        </developer>
+
+        <developer>
+            <id>ox.to.a.cart</id>
+            <name>Ox Cart</name>
+            <email>ox@getlantern.org</email>
+            <organization>GetLantern</organization>
+            <organizationUrl>https://www.getlantern.org/</organizationUrl>
+            <roles><role>Developer</role></roles>
+            <timezone>-5</timezone>
+        </developer>
+    </developers>
 </project>
