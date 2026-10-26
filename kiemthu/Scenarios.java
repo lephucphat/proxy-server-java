@@ -291,6 +291,44 @@ public class Scenarios extends GuiRobot {
         }
         String tip = edt(() -> ((javax.swing.JComponent) log.getCellRenderer(0, 5).getTableCellRendererComponent(log, log.getValueAt(0, 5), false, false, 0, 5)).getToolTipText());
         check("Re chuot vao o Dia chi -> chu goi y la duong link day du", fullAddress.equals(tip), tip);
+        java.awt.Point hp = edt(() -> {
+            Rectangle r = log.getTableHeader().getHeaderRect(3);
+            java.awt.Point l = log.getTableHeader().getLocationOnScreen();
+            return new java.awt.Point(l.x + r.x + r.width / 2, l.y + r.y + r.height / 2);
+        });
+        robot.mouseMove(hp.x - 6, hp.y);
+        robot.mouseMove(hp.x, hp.y);
+        settle(800);
+        String headTip = edt(() -> log.getTableHeader().getToolTipText());
+        check("Re chuot vao tieu de cot 'Loai' -> giai thich GET, POST, CONNECT", headTip != null && headTip.contains("CONNECT"), headTip);
+
+        javax.swing.JMenu helpMenu = edt(() -> frame.getJMenuBar().getMenu(0));
+        click(helpMenu);
+        JMenuItem tabsItem = menuItem("Giải thích các thẻ");
+        check("Menu 'Tro giup' co muc 'Giai thich cac the'", tabsItem != null, "");
+        if (tabsItem != null) {
+            click(tabsItem);
+            JDialog help = waitDialog("Giải thích các thẻ");
+            check("Mo hop thoai giai thich cac the", help != null, "");
+            if (help != null) {
+                String helpText = text(help, "txtHelp");
+                check("Noi dung giai thich du 4 the va canh bao", helpText.contains("TỔNG QUAN") && helpText.contains("QUY TẮC")
+                        && helpText.contains("NHẬT KÝ") && helpText.contains("THỐNG KÊ") && helpText.contains("CẢNH BÁO"), "");
+                shot(help, new File(shots, "14-tro-giup.png"));
+                closeDialog(help);
+            }
+        }
+        click(helpMenu);
+        JMenuItem codesItem = menuItem("Ý nghĩa mã trạng thái (200, 403, 407...)");
+        check("Menu 'Tro giup' co muc 'Y nghia ma trang thai'", codesItem != null, "");
+        if (codesItem != null) {
+            click(codesItem);
+            JDialog codes = waitDialog("Ý nghĩa mã trạng thái");
+            check("Mo hop thoai y nghia ma trang thai co 403 va 407", codes != null && text(codes, "txtHelp").contains("403") && text(codes, "txtHelp").contains("407"), "");
+            if (codes != null) {
+                closeDialog(codes);
+            }
+        }
 
         System.out.println("== 9. The Thong ke ==");
         selectTab("Thống kê");

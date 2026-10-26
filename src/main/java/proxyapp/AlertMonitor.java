@@ -48,13 +48,13 @@ public class AlertMonitor {
         Long last = lastBlockedAlert.get(who);
         if (times.size() >= threshold && (last == null || t - last > windowMillis)) {
             lastBlockedAlert.put(who, t);
-            alerts.add(who + " bị chặn " + times.size() + " lần trong " + (windowMillis / 60000) + " phút");
+            alerts.add(who + " bị chặn " + times.size() + " lần trong " + (windowMillis / 60000) + " phút (có thể đang thử vào nhiều trang bị cấm)");
             times.clear();
         }
     }
 
     public void locked(String client, int minutes) {
-        alerts.add("Địa chỉ " + client + " bị khóa " + minutes + " phút vì sai mật khẩu quá nhiều lần");
+        alerts.add("Địa chỉ " + client + " bị khóa " + minutes + " phút vì nhập sai mật khẩu quá nhiều lần (có thể có người đang đoán mật khẩu)");
     }
 
     public synchronized void refusedClient(String client) {

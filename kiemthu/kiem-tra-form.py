@@ -4,7 +4,7 @@ import sys
 import xml.etree.ElementTree as ET
 
 base = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'src', 'main', 'java', 'proxyapp')
-forms = ['MainFrame', 'PublicListDialog', 'AccessRulesDialog', 'UsersDialog', 'HttpsDialog', 'WelcomeDialog']
+forms = ['MainFrame', 'PublicListDialog', 'AccessRulesDialog', 'UsersDialog', 'HttpsDialog', 'WelcomeDialog', 'HelpDialog']
 problems = 0
 
 

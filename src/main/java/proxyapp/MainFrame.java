@@ -1027,6 +1027,85 @@ public class MainFrame extends javax.swing.JFrame {
         }
     }
 
+    private void addHeaderTips(final javax.swing.JTable table, final boolean log) {
+        final javax.swing.table.JTableHeader header = table.getTableHeader();
+        header.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent e) {
+                int view = header.columnAtPoint(e.getPoint());
+                int model = view < 0 ? -1 : table.convertColumnIndexToModel(view);
+                header.setToolTipText(log ? Hints.logColumn(model) : Hints.statsColumn(model));
+            }
+        });
+    }
+
+    private void setupHints() {
+        lblPort.setText("Cổng proxy:");
+        lblPort.setToolTipText(Hints.PORT);
+        txtPort.setToolTipText(Hints.PORT);
+        chkLan.setText("Cho phép máy khác trong mạng LAN dùng (điện thoại, laptop khác)");
+        chkLan.setToolTipText(Hints.LAN);
+        chkAuth.setText("Yêu cầu đăng nhập (bắt buộc khi bật LAN)");
+        chkAuth.setToolTipText(Hints.AUTH);
+        lblUser.setToolTipText(Hints.USER);
+        txtUser.setToolTipText(Hints.USER);
+        txtPass.setToolTipText(Hints.PASSWORD);
+        lblBlock.setText("Danh sách chặn: mỗi dòng một trang, ví dụ youtube.com");
+        lblBlock.setToolTipText(Hints.BLOCK_LIST);
+        txtBlock.setToolTipText(Hints.BLOCK_LIST);
+        btnSaveBlock.setToolTipText(Hints.SAVE_BLOCK);
+        txtFilter.setToolTipText(Hints.FILTER);
+        chkBlockedOnly.setToolTipText(Hints.BLOCKED_ONLY);
+        lblChart.setText("Lưu lượng mạng 5 phút gần nhất (xanh = tải về, cam = gửi đi):");
+        lblChart.setToolTipText(Hints.CHART);
+        pnlChart.setToolTipText(Hints.CHART);
+        lblClients.setText("Theo máy khách (mỗi máy dùng proxy một dòng):");
+        lblUsers.setText("Theo người dùng (khi có bật đăng nhập):");
+        lblAlerts.setText("Cảnh báo (máy bị chặn nhiều lần, sai mật khẩu, máy lạ):");
+        lblAlerts.setToolTipText(Hints.ALERTS);
+        txtAlerts.setToolTipText(Hints.ALERTS);
+        lblTop.setText("Trang được truy cập nhiều nhất (đếm số yêu cầu):");
+        lblTop.setToolTipText(Hints.TOP_HOSTS);
+        txtTop.setToolTipText(Hints.TOP_HOSTS);
+        btnClearAlerts.setToolTipText(Hints.CLEAR_ALERTS);
+        btnReset.setToolTipText(Hints.RESET_STATS);
+        lblReq.setToolTipText(Hints.REQUESTS);
+        lblBlocked.setToolTipText(Hints.BLOCKED);
+        lblConn.setToolTipText(Hints.CONNECTIONS);
+        lblDown.setToolTipText(Hints.DOWNLOAD);
+        lblUp.setToolTipText(Hints.UPLOAD);
+        lblFail.setToolTipText(Hints.WRONG_PASSWORD);
+        addHeaderTips(tblLog, true);
+        addHeaderTips(tblClients, false);
+        addHeaderTips(tblUsers, false);
+    }
+
+    private javax.swing.JMenuItem helpItem(String label, final String title, final String text) {
+        javax.swing.JMenuItem item = new javax.swing.JMenuItem(label);
+        item.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                new HelpDialog(MainFrame.this, title, text).setVisible(true);
+            }
+        });
+        return item;
+    }
+
+    private void setupHelpMenu() {
+        javax.swing.JMenu menu = new javax.swing.JMenu("Trợ giúp");
+        menu.add(helpItem("Giải thích các thẻ", "Giải thích các thẻ", Hints.tabsText()));
+        menu.add(helpItem("Ý nghĩa mã trạng thái (200, 403, 407...)", "Ý nghĩa mã trạng thái", Hints.codesText()));
+        javax.swing.JMenuItem quick = new javax.swing.JMenuItem("Hướng dẫn nhanh");
+        quick.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                new WelcomeDialog(MainFrame.this, config.port).setVisible(true);
+            }
+        });
+        menu.add(quick);
+        javax.swing.JMenuBar bar = new javax.swing.JMenuBar();
+        bar.add(menu);
+        setJMenuBar(bar);
+        getRootPane().revalidate();
+    }
+
     private void setupLogCopy() {
         javax.swing.table.DefaultTableCellRenderer tip = new javax.swing.table.DefaultTableCellRenderer() {
             public java.awt.Component getTableCellRendererComponent(javax.swing.JTable table, Object value,
@@ -1128,6 +1207,8 @@ public class MainFrame extends javax.swing.JFrame {
         txtFilter.putClientProperty("JTextField.placeholderText", "Gõ tên miền, địa chỉ hoặc người dùng để lọc");
         txtAllow.putClientProperty("JTextField.placeholderText", "Để trống = cho tất cả máy");
         setupLogCopy();
+        setupHints();
+        setupHelpMenu();
         txtPass.putClientProperty("JTextField.placeholderText", "Để trống = giữ mật khẩu cũ");
         updateRunState();
     }

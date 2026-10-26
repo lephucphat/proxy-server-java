@@ -31,6 +31,8 @@ Lần mở đầu tiên có hộp thoại **Bắt đầu nhanh** nhắc lại 3 
 - **Nhật ký**: bảng truy cập. Ô **Lọc** lọc theo tên miền, máy khách, người dùng hoặc địa chỉ; tích **Chỉ hiện dòng bị chặn** để xem riêng các dòng bị chặn. Có nút **Xóa nhật ký** và **Xuất CSV**.
 - **Thống kê**: biểu đồ, bảng theo máy khách và người dùng, cảnh báo, tên miền truy cập nhiều nhất (mục 6).
 
+**Không hiểu chỗ nào thì rê chuột vào đó** (tiêu đề cột Nhật ký, các số ở thanh dưới, các ô cài đặt đều có chú thích). Menu **Trợ giúp** ở góc trên cùng cửa sổ có: **Giải thích các thẻ**, **Ý nghĩa mã trạng thái (200, 403, 407...)** và **Hướng dẫn nhanh**.
+
 ## 3. Cho máy khác hoặc điện thoại dùng (LAN)
 
 1. Tích **Cho phép máy khác trong mạng LAN dùng**. Khi đó **bắt buộc** tích **Yêu cầu đăng nhập**, đặt tài khoản và mật khẩu (mật khẩu được lưu dạng băm).
