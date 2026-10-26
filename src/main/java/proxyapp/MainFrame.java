@@ -244,18 +244,19 @@ public class MainFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Proxy Server");
         setMinimumSize(new java.awt.Dimension(900, 600));
-        setPreferredSize(new java.awt.Dimension(1000, 680));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
             }
         });
+
         btnStart.setText("Bật proxy");
         btnStart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnStartActionPerformed(evt);
             }
         });
+
         btnStop.setText("Tắt proxy");
         btnStop.setEnabled(false);
         btnStop.addActionListener(new java.awt.event.ActionListener() {
@@ -263,7 +264,9 @@ public class MainFrame extends javax.swing.JFrame {
                 btnStopActionPerformed(evt);
             }
         });
+
         lblStatus.setText("● Đã dừng");
+
         btnSystemProxy.setText("Bật proxy hệ thống Windows");
         btnSystemProxy.setEnabled(false);
         btnSystemProxy.addActionListener(new java.awt.event.ActionListener() {
@@ -271,130 +274,6 @@ public class MainFrame extends javax.swing.JFrame {
                 btnSystemProxyActionPerformed(evt);
             }
         });
-
-        pnlConn.setBorder(javax.swing.BorderFactory.createTitledBorder("Kết nối"));
-        lblPort.setText("Cổng:");
-        txtPort.setText("8080");
-        chkLan.setText("Cho phép máy khác trong mạng LAN dùng");
-        lblLimit.setText("Giới hạn tốc độ (KB/s):");
-        lblLimit.setToolTipText("0 = không giới hạn");
-        txtLimit.setText("0");
-        txtLimit.setToolTipText("0 = không giới hạn");
-        chkLogFile.setText("Ghi nhật ký ra file proxy-log.csv");
-
-        pnlSecurity.setBorder(javax.swing.BorderFactory.createTitledBorder("Bảo mật"));
-        chkAuth.setText("Yêu cầu đăng nhập");
-        lblUser.setText("Tài khoản:");
-        txtUser.setText("admin");
-        lblPass.setText("Mật khẩu:");
-        lblAllow.setText("IP máy được phép:");
-        lblAllow.setToolTipText("Để trống = tất cả. Ví dụ: 192.168.1.0/24, 10.0.0.5");
-        txtAllow.setToolTipText("Để trống = tất cả. Ví dụ: 192.168.1.0/24, 10.0.0.5");
-        btnUsers.setText("Tài khoản khác...");
-        btnUsers.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUsersActionPerformed(evt);
-            }
-        });
-
-        pnlSystem.setBorder(javax.swing.BorderFactory.createTitledBorder("Hệ thống"));
-        chkTray.setText("Đóng cửa sổ thì chạy nền ở khay hệ thống");
-        chkTray.setToolTipText("Khi proxy đang chạy, bấm X chỉ ẩn cửa sổ xuống khay hệ thống");
-        chkAutoProxy.setText("Tự bật proxy khi mở app");
-        chkWinStart.setText("Tự mở cùng Windows");
-        chkWinStart.setToolTipText("Chỉ dùng được khi chạy từ file .exe hoặc .jar");
-        chkWinStart.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chkWinStartActionPerformed(evt);
-            }
-        });
-        lblHint.setText("Đặt proxy trình duyệt là 127.0.0.1 và cổng đã chọn");
-        lblBlock.setText("Danh sách chặn (mỗi dòng một tên miền):");
-        txtBlock.setColumns(20);
-        txtBlock.setRows(5);
-        btnSaveBlock.setText("Lưu danh sách chặn");
-        btnSaveBlock.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaveBlockActionPerformed(evt);
-            }
-        });
-        btnPublic.setText("Danh sách chặn công khai...");
-        btnPublic.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPublicActionPerformed(evt);
-            }
-        });
-        lblPublicHint.setText("Nạp danh sách quảng cáo, theo dõi, mã độc từ file hoặc URL");
-        btnRules.setText("Chỉ cho phép & lịch chặn theo giờ...");
-        btnRules.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRulesActionPerformed(evt);
-            }
-        });
-        lblRulesHint.setText("Chỉ cho vào một số trang, hoặc chặn theo giờ trong ngày");
-        btnHttps.setText("Giải mã HTTPS...");
-        btnHttps.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHttpsActionPerformed(evt);
-            }
-        });
-        lblHttpsHint.setText("Thấy đường dẫn HTTPS để chặn theo đường dẫn, từ khóa");
-        lblFilter.setText("Lọc:");
-        txtFilter.setToolTipText("Gõ tên miền, địa chỉ hoặc tên người dùng");
-        chkBlockedOnly.setText("Chỉ hiện dòng bị chặn");
-        chkBlockedOnly.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chkBlockedOnlyActionPerformed(evt);
-            }
-        });
-        btnClearLog.setText("Xóa nhật ký");
-        btnClearLog.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnClearLogActionPerformed(evt);
-            }
-        });
-        btnExport.setText("Xuất CSV");
-        btnExport.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExportActionPerformed(evt);
-            }
-        });
-        lblChart.setText("Lưu lượng 5 phút gần nhất (tải xuống / tải lên):");
-        lblClients.setText("Theo máy khách:");
-        lblUsers.setText("Theo người dùng:");
-        lblAlerts.setText("Cảnh báo (mới nhất ở dưới):");
-        lblTop.setText("Tên miền truy cập nhiều nhất:");
-        txtAlerts.setEditable(false);
-        txtAlerts.setColumns(20);
-        txtAlerts.setRows(5);
-        txtTop.setEditable(false);
-        txtTop.setColumns(20);
-        txtTop.setRows(5);
-        btnClearAlerts.setText("Xóa cảnh báo");
-        btnClearAlerts.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnClearAlertsActionPerformed(evt);
-            }
-        });
-        btnReset.setText("Đặt lại thống kê");
-        btnReset.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnResetActionPerformed(evt);
-            }
-        });
-        lblReq.setText("Yêu cầu: 0");
-        lblBlocked.setText("Bị chặn: 0");
-        lblConn.setText("Kết nối: 0");
-        lblDown.setText("Tải xuống: 0 B");
-        lblUp.setText("Tải lên: 0 B");
-        lblFail.setText("Sai mật khẩu: 0");
-
-        scrollBlock.setViewportView(txtBlock);
-        scrollLog.setViewportView(tblLog);
-        scrollClients.setViewportView(tblClients);
-        scrollUsers.setViewportView(tblUsers);
-        scrollAlerts.setViewportView(txtAlerts);
-        scrollTop.setViewportView(txtTop);
 
         javax.swing.GroupLayout pnlTopLayout = new javax.swing.GroupLayout(pnlTop);
         pnlTop.setLayout(pnlTopLayout);
@@ -406,7 +285,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(8, 8, 8)
                 .addComponent(btnStop, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
-                .addComponent(lblStatus, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                .addComponent(lblStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(12, 12, 12)
                 .addComponent(btnSystemProxy, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12))
@@ -423,32 +302,23 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(10, 10, 10))
         );
 
-        javax.swing.GroupLayout pnlGeneralLayout = new javax.swing.GroupLayout(pnlGeneral);
-        pnlGeneral.setLayout(pnlGeneralLayout);
-        pnlGeneralLayout.setHorizontalGroup(
-            pnlGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlGeneralLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addGroup(pnlGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlConn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnlSecurity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnlSystem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblHint, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(12, 12, 12))
-        );
-        pnlGeneralLayout.setVerticalGroup(
-            pnlGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlGeneralLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(pnlConn)
-                .addGap(10, 10, 10)
-                .addComponent(pnlSecurity)
-                .addGap(10, 10, 10)
-                .addComponent(pnlSystem)
-                .addGap(10, 10, 10)
-                .addComponent(lblHint)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+        getContentPane().add(pnlTop, java.awt.BorderLayout.NORTH);
+
+        pnlConn.setBorder(javax.swing.BorderFactory.createTitledBorder("Kết nối"));
+
+        lblPort.setText("Cổng:");
+
+        txtPort.setText("8080");
+
+        chkLan.setText("Cho phép máy khác trong mạng LAN dùng");
+
+        lblLimit.setText("Giới hạn tốc độ (KB/s):");
+        lblLimit.setToolTipText("0 = không giới hạn");
+
+        txtLimit.setText("0");
+        txtLimit.setToolTipText("0 = không giới hạn");
+
+        chkLogFile.setText("Ghi nhật ký ra file proxy-log.csv");
 
         javax.swing.GroupLayout pnlConnLayout = new javax.swing.GroupLayout(pnlConn);
         pnlConn.setLayout(pnlConnLayout);
@@ -477,15 +347,37 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(6, 6, 6)
                 .addGroup(pnlConnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPort)
-                    .addComponent(txtPort)
+                    .addComponent(txtPort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(chkLan))
                 .addGap(8, 8, 8)
                 .addGroup(pnlConnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblLimit)
-                    .addComponent(txtLimit)
+                    .addComponent(txtLimit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(chkLogFile))
                 .addGap(10, 10, 10))
         );
+
+        pnlSecurity.setBorder(javax.swing.BorderFactory.createTitledBorder("Bảo mật"));
+
+        chkAuth.setText("Yêu cầu đăng nhập");
+
+        lblUser.setText("Tài khoản:");
+
+        txtUser.setText("admin");
+
+        lblPass.setText("Mật khẩu:");
+
+        lblAllow.setText("IP máy được phép:");
+        lblAllow.setToolTipText("Để trống = tất cả. Ví dụ: 192.168.1.0/24, 10.0.0.5");
+
+        txtAllow.setToolTipText("Để trống = tất cả. Ví dụ: 192.168.1.0/24, 10.0.0.5");
+
+        btnUsers.setText("Tài khoản khác...");
+        btnUsers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUsersActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlSecurityLayout = new javax.swing.GroupLayout(pnlSecurity);
         pnlSecurity.setLayout(pnlSecurityLayout);
@@ -506,7 +398,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addGroup(pnlSecurityLayout.createSequentialGroup()
                         .addComponent(lblAllow, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(8, 8, 8)
-                        .addComponent(txtAllow, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                        .addComponent(txtAllow)
                         .addGap(8, 8, 8)
                         .addComponent(btnUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(12, 12, 12))
@@ -519,16 +411,31 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(8, 8, 8)
                 .addGroup(pnlSecurityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblUser)
-                    .addComponent(txtUser)
+                    .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblPass)
-                    .addComponent(txtPass))
+                    .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(8, 8, 8)
                 .addGroup(pnlSecurityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAllow)
-                    .addComponent(txtAllow)
+                    .addComponent(txtAllow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnUsers))
                 .addGap(10, 10, 10))
         );
+
+        pnlSystem.setBorder(javax.swing.BorderFactory.createTitledBorder("Hệ thống"));
+
+        chkTray.setText("Đóng cửa sổ thì chạy nền ở khay hệ thống");
+        chkTray.setToolTipText("Khi proxy đang chạy, bấm X chỉ ẩn cửa sổ xuống khay hệ thống");
+
+        chkAutoProxy.setText("Tự bật proxy khi mở app");
+
+        chkWinStart.setText("Tự mở cùng Windows");
+        chkWinStart.setToolTipText("Chỉ dùng được khi chạy từ file .exe hoặc .jar");
+        chkWinStart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkWinStartActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlSystemLayout = new javax.swing.GroupLayout(pnlSystem);
         pnlSystem.setLayout(pnlSystemLayout);
@@ -554,6 +461,77 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(10, 10, 10))
         );
 
+        lblHint.setText("Đặt proxy trình duyệt là 127.0.0.1 và cổng đã chọn");
+
+        javax.swing.GroupLayout pnlGeneralLayout = new javax.swing.GroupLayout(pnlGeneral);
+        pnlGeneral.setLayout(pnlGeneralLayout);
+        pnlGeneralLayout.setHorizontalGroup(
+            pnlGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlGeneralLayout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addGroup(pnlGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnlConn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlSecurity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlSystem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblHint, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(12, 12, 12))
+        );
+        pnlGeneralLayout.setVerticalGroup(
+            pnlGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlGeneralLayout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addComponent(pnlConn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(pnlSecurity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(pnlSystem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(lblHint)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        tabs.addTab("Tổng quan", pnlGeneral);
+
+        lblBlock.setText("Danh sách chặn (mỗi dòng một tên miền):");
+
+        txtBlock.setColumns(20);
+        txtBlock.setRows(5);
+        scrollBlock.setViewportView(txtBlock);
+
+        btnSaveBlock.setText("Lưu danh sách chặn");
+        btnSaveBlock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveBlockActionPerformed(evt);
+            }
+        });
+
+        btnPublic.setText("Danh sách chặn công khai...");
+        btnPublic.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPublicActionPerformed(evt);
+            }
+        });
+
+        lblPublicHint.setText("Nạp danh sách quảng cáo, theo dõi, mã độc từ file hoặc URL");
+
+        btnRules.setText("Chỉ cho phép & lịch chặn theo giờ...");
+        btnRules.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRulesActionPerformed(evt);
+            }
+        });
+
+        lblRulesHint.setText("Chỉ cho vào một số trang, hoặc chặn theo giờ trong ngày");
+
+        btnHttps.setText("Giải mã HTTPS...");
+        btnHttps.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHttpsActionPerformed(evt);
+            }
+        });
+
+        lblHttpsHint.setText("Thấy đường dẫn HTTPS để chặn theo đường dẫn, từ khóa");
+
         javax.swing.GroupLayout pnlRulesLayout = new javax.swing.GroupLayout(pnlRules);
         pnlRules.setLayout(pnlRulesLayout);
         pnlRulesLayout.setHorizontalGroup(
@@ -562,7 +540,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addGroup(pnlRulesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblBlock)
-                    .addComponent(scrollBlock, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
+                    .addComponent(scrollBlock)
                     .addComponent(btnSaveBlock, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(16, 16, 16)
                 .addGroup(pnlRulesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -582,7 +560,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addGroup(pnlRulesLayout.createSequentialGroup()
                         .addComponent(lblBlock)
                         .addGap(6, 6, 6)
-                        .addComponent(scrollBlock, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                        .addComponent(scrollBlock)
                         .addGap(8, 8, 8)
                         .addComponent(btnSaveBlock, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlRulesLayout.createSequentialGroup()
@@ -601,6 +579,35 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(12, 12, 12))
         );
 
+        tabs.addTab("Quy tắc", pnlRules);
+
+        lblFilter.setText("Lọc:");
+
+        txtFilter.setToolTipText("Gõ tên miền, địa chỉ hoặc tên người dùng");
+
+        chkBlockedOnly.setText("Chỉ hiện dòng bị chặn");
+        chkBlockedOnly.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkBlockedOnlyActionPerformed(evt);
+            }
+        });
+
+        btnClearLog.setText("Xóa nhật ký");
+        btnClearLog.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearLogActionPerformed(evt);
+            }
+        });
+
+        btnExport.setText("Xuất CSV");
+        btnExport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExportActionPerformed(evt);
+            }
+        });
+
+        scrollLog.setViewportView(tblLog);
+
         javax.swing.GroupLayout pnlLogLayout = new javax.swing.GroupLayout(pnlLog);
         pnlLog.setLayout(pnlLogLayout);
         pnlLogLayout.setHorizontalGroup(
@@ -611,14 +618,14 @@ public class MainFrame extends javax.swing.JFrame {
                     .addGroup(pnlLogLayout.createSequentialGroup()
                         .addComponent(lblFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6)
-                        .addComponent(txtFilter, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                        .addComponent(txtFilter)
                         .addGap(12, 12, 12)
                         .addComponent(chkBlockedOnly)
                         .addGap(12, 12, 12)
                         .addComponent(btnClearLog, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6)
                         .addComponent(btnExport, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(scrollLog, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE))
+                    .addComponent(scrollLog))
                 .addGap(12, 12, 12))
         );
         pnlLogLayout.setVerticalGroup(
@@ -627,7 +634,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addGroup(pnlLogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblFilter)
-                    .addComponent(txtFilter)
+                    .addComponent(txtFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(chkBlockedOnly)
                     .addComponent(btnClearLog)
                     .addComponent(btnExport))
@@ -635,6 +642,57 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(scrollLog, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
                 .addGap(12, 12, 12))
         );
+
+        tabs.addTab("Nhật ký", pnlLog);
+
+        lblChart.setText("Lưu lượng 5 phút gần nhất (tải xuống / tải lên):");
+
+        javax.swing.GroupLayout pnlChartLayout = new javax.swing.GroupLayout(pnlChart);
+        pnlChart.setLayout(pnlChartLayout);
+        pnlChartLayout.setHorizontalGroup(
+            pnlChartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 700, Short.MAX_VALUE)
+        );
+        pnlChartLayout.setVerticalGroup(
+            pnlChartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 170, Short.MAX_VALUE)
+        );
+
+        lblClients.setText("Theo máy khách:");
+
+        lblUsers.setText("Theo người dùng:");
+
+        scrollClients.setViewportView(tblClients);
+
+        scrollUsers.setViewportView(tblUsers);
+
+        lblAlerts.setText("Cảnh báo (mới nhất ở dưới):");
+
+        lblTop.setText("Tên miền truy cập nhiều nhất:");
+
+        txtAlerts.setEditable(false);
+        txtAlerts.setColumns(20);
+        txtAlerts.setRows(5);
+        scrollAlerts.setViewportView(txtAlerts);
+
+        txtTop.setEditable(false);
+        txtTop.setColumns(20);
+        txtTop.setRows(5);
+        scrollTop.setViewportView(txtTop);
+
+        btnClearAlerts.setText("Xóa cảnh báo");
+        btnClearAlerts.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearAlertsActionPerformed(evt);
+            }
+        });
+
+        btnReset.setText("Đặt lại thống kê");
+        btnReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlStatsLayout = new javax.swing.GroupLayout(pnlStats);
         pnlStats.setLayout(pnlStatsLayout);
@@ -644,7 +702,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addGroup(pnlStatsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblChart)
-                    .addComponent(pnlChart, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
+                    .addComponent(pnlChart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pnlStatsLayout.createSequentialGroup()
                         .addGroup(pnlStatsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblClients)
@@ -660,7 +718,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addGap(12, 12, 12)
                         .addGroup(pnlStatsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblTop)
-                            .addComponent(scrollTop, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)))
+                            .addComponent(scrollTop, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                     .addGroup(pnlStatsLayout.createSequentialGroup()
                         .addComponent(btnClearAlerts, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(8, 8, 8)
@@ -673,7 +731,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(10, 10, 10)
                 .addComponent(lblChart)
                 .addGap(4, 4, 4)
-                .addComponent(pnlChart, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                .addComponent(pnlChart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(8, 8, 8)
                 .addGroup(pnlStatsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblClients)
@@ -697,16 +755,21 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(10, 10, 10))
         );
 
-        javax.swing.GroupLayout pnlChartLayout = new javax.swing.GroupLayout(pnlChart);
-        pnlChart.setLayout(pnlChartLayout);
-        pnlChartLayout.setHorizontalGroup(
-            pnlChartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
-        );
-        pnlChartLayout.setVerticalGroup(
-            pnlChartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 170, Short.MAX_VALUE)
-        );
+        tabs.addTab("Thống kê", pnlStats);
+
+        getContentPane().add(tabs, java.awt.BorderLayout.CENTER);
+
+        lblReq.setText("Yêu cầu: 0");
+
+        lblBlocked.setText("Bị chặn: 0");
+
+        lblConn.setText("Kết nối: 0");
+
+        lblDown.setText("Tải xuống: 0 B");
+
+        lblUp.setText("Tải lên: 0 B");
+
+        lblFail.setText("Sai mật khẩu: 0");
 
         javax.swing.GroupLayout pnlStatusLayout = new javax.swing.GroupLayout(pnlStatus);
         pnlStatus.setLayout(pnlStatusLayout);
@@ -725,8 +788,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(lblUp)
                 .addGap(28, 28, 28)
                 .addComponent(lblFail)
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGap(12, 12, 12))
+                .addGap(0, 12, Short.MAX_VALUE))
         );
         pnlStatusLayout.setVerticalGroup(
             pnlStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -742,13 +804,6 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(6, 6, 6))
         );
 
-        tabs.addTab("Tổng quan", pnlGeneral);
-        tabs.addTab("Quy tắc", pnlRules);
-        tabs.addTab("Nhật ký", pnlLog);
-        tabs.addTab("Thống kê", pnlStats);
-
-        getContentPane().add(pnlTop, java.awt.BorderLayout.NORTH);
-        getContentPane().add(tabs, java.awt.BorderLayout.CENTER);
         getContentPane().add(pnlStatus, java.awt.BorderLayout.SOUTH);
 
         pack();
@@ -972,6 +1027,65 @@ public class MainFrame extends javax.swing.JFrame {
         }
     }
 
+    private void setupLogCopy() {
+        javax.swing.table.DefaultTableCellRenderer tip = new javax.swing.table.DefaultTableCellRenderer() {
+            public java.awt.Component getTableCellRendererComponent(javax.swing.JTable table, Object value,
+                    boolean selected, boolean focus, int row, int column) {
+                java.awt.Component c = super.getTableCellRendererComponent(table, value, selected, focus, row, column);
+                setToolTipText(value == null ? null : value.toString());
+                return c;
+            }
+        };
+        tblLog.getColumnModel().getColumn(4).setCellRenderer(tip);
+        tblLog.getColumnModel().getColumn(5).setCellRenderer(tip);
+        final javax.swing.JPopupMenu menu = new javax.swing.JPopupMenu();
+        javax.swing.JMenuItem copy = new javax.swing.JMenuItem("Sao chép địa chỉ");
+        copy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                copySelectedAddresses();
+            }
+        });
+        menu.add(copy);
+        tblLog.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent e) {
+                showLogMenu(e, menu);
+            }
+
+            public void mouseReleased(java.awt.event.MouseEvent e) {
+                showLogMenu(e, menu);
+            }
+        });
+    }
+
+    private void showLogMenu(java.awt.event.MouseEvent e, javax.swing.JPopupMenu menu) {
+        if (!e.isPopupTrigger()) {
+            return;
+        }
+        int row = tblLog.rowAtPoint(e.getPoint());
+        if (row < 0) {
+            return;
+        }
+        if (!tblLog.isRowSelected(row)) {
+            tblLog.setRowSelectionInterval(row, row);
+        }
+        menu.show(tblLog, e.getX(), e.getY());
+    }
+
+    private void copySelectedAddresses() {
+        StringBuilder sb = new StringBuilder();
+        for (int row : tblLog.getSelectedRows()) {
+            int modelRow = tblLog.convertRowIndexToModel(row);
+            if (sb.length() > 0) {
+                sb.append('\n');
+            }
+            sb.append(logModel.getValueAt(modelRow, 5));
+        }
+        if (sb.length() > 0) {
+            java.awt.Toolkit.getDefaultToolkit().getSystemClipboard()
+                    .setContents(new java.awt.datatransfer.StringSelection(sb.toString()), null);
+        }
+    }
+
     private void applyLogFilter() {
         logSorter.setRowFilter(LogFilter.build(txtFilter.getText(), chkBlockedOnly.isSelected()));
     }
@@ -1013,6 +1127,7 @@ public class MainFrame extends javax.swing.JFrame {
         txtTop.setFont(new java.awt.Font(java.awt.Font.MONOSPACED, java.awt.Font.PLAIN, 12));
         txtFilter.putClientProperty("JTextField.placeholderText", "Gõ tên miền, địa chỉ hoặc người dùng để lọc");
         txtAllow.putClientProperty("JTextField.placeholderText", "Để trống = cho tất cả máy");
+        setupLogCopy();
         txtPass.putClientProperty("JTextField.placeholderText", "Để trống = giữ mật khẩu cũ");
         updateRunState();
     }
@@ -1218,7 +1333,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel pnlStatus;
     private javax.swing.JPanel pnlSystem;
     private javax.swing.JPanel pnlTop;
-    private javax.swing.JPasswordField txtPass;
     private javax.swing.JScrollPane scrollAlerts;
     private javax.swing.JScrollPane scrollBlock;
     private javax.swing.JScrollPane scrollClients;
@@ -1230,12 +1344,13 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTable tblLog;
     private javax.swing.JTable tblUsers;
     private javax.swing.JTextArea txtAlerts;
-    private javax.swing.JTextArea txtBlock;
-    private javax.swing.JTextArea txtTop;
     private javax.swing.JTextField txtAllow;
+    private javax.swing.JTextArea txtBlock;
     private javax.swing.JTextField txtFilter;
     private javax.swing.JTextField txtLimit;
+    private javax.swing.JPasswordField txtPass;
     private javax.swing.JTextField txtPort;
+    private javax.swing.JTextArea txtTop;
     private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
 }

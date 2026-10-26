@@ -1,5 +1,6 @@
 import java.awt.Component;
 import java.awt.Rectangle;
+import java.awt.Window;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.nio.charset.StandardCharsets;
@@ -9,6 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JDialog;
 import javax.swing.JList;
+import javax.swing.JMenuItem;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -31,6 +33,37 @@ public class Scenarios extends GuiRobot {
     static void closeDialog(JDialog d) throws Exception {
         click(buttonWithText(d, "Đóng"));
         check("Dong hop thoai '" + edt(() -> d.getTitle()) + "'", waitFor(() -> !d.isShowing(), 4000), "");
+    }
+
+    static boolean rightClickRow(JTable table, int row) throws Exception {
+        java.awt.Point p = edt(() -> {
+            java.awt.Rectangle r = table.getCellRect(row, 5, true);
+            java.awt.Point l = table.getLocationOnScreen();
+            return new java.awt.Point(l.x + r.x + Math.min(40, r.width / 2), l.y + r.y + r.height / 2);
+        });
+        robot.mouseMove(p.x, p.y);
+        robot.mousePress(java.awt.event.InputEvent.BUTTON3_DOWN_MASK);
+        robot.mouseRelease(java.awt.event.InputEvent.BUTTON3_DOWN_MASK);
+        settle(500);
+        return true;
+    }
+
+    static JMenuItem menuItem(String text) throws Exception {
+        return edt(() -> {
+            java.util.List<Component> found = new java.util.ArrayList<Component>();
+            collect(frame, JMenuItem.class, found);
+            for (Window w : Window.getWindows()) {
+                if (w.isShowing()) {
+                    collect(w, JMenuItem.class, found);
+                }
+            }
+            for (Component c : found) {
+                if (text.equals(((JMenuItem) c).getText()) && c.isShowing()) {
+                    return (JMenuItem) c;
+                }
+            }
+            return null;
+        });
     }
 
     static void resize(int w, int h) throws Exception {
@@ -247,6 +280,17 @@ public class Scenarios extends GuiRobot {
             return log.getRowCount() >= 1;
         }), "");
         click((JCheckBox) field(frame, "chkBlockedOnly"));
+
+        String fullAddress = edt(() -> String.valueOf(log.getValueAt(0, 5)));
+        check("Chuot phai vao dong nhat ky -> hien menu 'Sao chep dia chi'", rightClickRow(log, 0) && menuItem("Sao chép địa chỉ") != null, "");
+        JMenuItem copyItem = menuItem("Sao chép địa chỉ");
+        if (copyItem != null) {
+            click(copyItem);
+            String copied = (String) java.awt.Toolkit.getDefaultToolkit().getSystemClipboard().getData(java.awt.datatransfer.DataFlavor.stringFlavor);
+            check("Bam 'Sao chep dia chi' -> bo nho tam co dung duong link", fullAddress.equals(copied), copied);
+        }
+        String tip = edt(() -> ((javax.swing.JComponent) log.getCellRenderer(0, 5).getTableCellRendererComponent(log, log.getValueAt(0, 5), false, false, 0, 5)).getToolTipText());
+        check("Re chuot vao o Dia chi -> chu goi y la duong link day du", fullAddress.equals(tip), tip);
 
         System.out.println("== 9. The Thong ke ==");
         selectTab("Thống kê");

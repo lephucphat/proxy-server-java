@@ -7,9 +7,6 @@
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[900, 600]"/>
     </Property>
-    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[1000, 680]"/>
-    </Property>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -28,7 +25,9 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,1,-17,0,0,2,-52"/>
   </AuxValues>
+
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
   <SubComponents>
     <Container class="javax.swing.JPanel" name="pnlTop">
@@ -37,6 +36,7 @@
           <BorderConstraints direction="North"/>
         </Constraint>
       </Constraints>
+
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
@@ -46,7 +46,7 @@
                   <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                   <Component id="btnStop" min="-2" pref="130" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                  <Component id="lblStatus" pref="220" max="32767" attributes="0"/>
+                  <Component id="lblStatus" max="32767" attributes="0"/>
                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   <Component id="btnSystemProxy" min="-2" pref="240" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
@@ -71,7 +71,7 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="btnStart">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Bật proxy"/>
+            <Property name="text" type="java.lang.String" value="B&#x1ead;t proxy"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnStartActionPerformed"/>
@@ -79,7 +79,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnStop">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Tắt proxy"/>
+            <Property name="text" type="java.lang.String" value="T&#x1eaf;t proxy"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
@@ -88,12 +88,12 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblStatus">
           <Properties>
-            <Property name="text" type="java.lang.String" value="● Đã dừng"/>
+            <Property name="text" type="java.lang.String" value="&#x25cf; &#x110;&#xe3; d&#x1eeb;ng"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnSystemProxy">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Bật proxy hệ thống Windows"/>
+            <Property name="text" type="java.lang.String" value="B&#x1ead;t proxy h&#x1ec7; th&#x1ed1;ng Windows"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
@@ -114,11 +114,12 @@
         <Container class="javax.swing.JPanel" name="pnlGeneral">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Tổng quan">
-                <Property name="tabTitle" type="java.lang.String" value="Tổng quan"/>
+              <JTabbedPaneConstraints tabName="T&#x1ed5;ng quan">
+                <Property name="tabTitle" type="java.lang.String" value="T&#x1ed5;ng quan"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
+
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
@@ -155,10 +156,11 @@
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Kết nối"/>
+                    <TitledBorder title="K&#x1ebf;t n&#x1ed1;i"/>
                   </Border>
                 </Property>
               </Properties>
+
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -207,7 +209,7 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="lblPort">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Cổng:"/>
+                    <Property name="text" type="java.lang.String" value="C&#x1ed5;ng:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtPort">
@@ -217,24 +219,24 @@
                 </Component>
                 <Component class="javax.swing.JCheckBox" name="chkLan">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Cho phép máy khác trong mạng LAN dùng"/>
+                    <Property name="text" type="java.lang.String" value="Cho ph&#xe9;p m&#xe1;y kh&#xe1;c trong m&#x1ea1;ng LAN d&#xf9;ng"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblLimit">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Giới hạn tốc độ (KB/s):"/>
-                    <Property name="toolTipText" type="java.lang.String" value="0 = không giới hạn"/>
+                    <Property name="text" type="java.lang.String" value="Gi&#x1edb;i h&#x1ea1;n t&#x1ed1;c &#x111;&#x1ed9; (KB/s):"/>
+                    <Property name="toolTipText" type="java.lang.String" value="0 = kh&#xf4;ng gi&#x1edb;i h&#x1ea1;n"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtLimit">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="0"/>
-                    <Property name="toolTipText" type="java.lang.String" value="0 = không giới hạn"/>
+                    <Property name="toolTipText" type="java.lang.String" value="0 = kh&#xf4;ng gi&#x1edb;i h&#x1ea1;n"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JCheckBox" name="chkLogFile">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Ghi nhật ký ra file proxy-log.csv"/>
+                    <Property name="text" type="java.lang.String" value="Ghi nh&#x1ead;t k&#xfd; ra file proxy-log.csv"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -243,10 +245,11 @@
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Bảo mật"/>
+                    <TitledBorder title="B&#x1ea3;o m&#x1ead;t"/>
                   </Border>
                 </Property>
               </Properties>
+
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -266,7 +269,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="lblAllow" min="-2" pref="170" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                                  <Component id="txtAllow" pref="200" max="32767" attributes="0"/>
+                                  <Component id="txtAllow" max="32767" attributes="0"/>
                                   <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                                   <Component id="btnUsers" min="-2" pref="170" max="-2" attributes="0"/>
                               </Group>
@@ -301,12 +304,12 @@
               <SubComponents>
                 <Component class="javax.swing.JCheckBox" name="chkAuth">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Yêu cầu đăng nhập"/>
+                    <Property name="text" type="java.lang.String" value="Y&#xea;u c&#x1ea7;u &#x111;&#x103;ng nh&#x1ead;p"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblUser">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Tài khoản:"/>
+                    <Property name="text" type="java.lang.String" value="T&#xe0;i kho&#x1ea3;n:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtUser">
@@ -316,25 +319,25 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblPass">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Mật khẩu:"/>
+                    <Property name="text" type="java.lang.String" value="M&#x1ead;t kh&#x1ea9;u:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JPasswordField" name="txtPass">
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblAllow">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="IP máy được phép:"/>
-                    <Property name="toolTipText" type="java.lang.String" value="Để trống = tất cả. Ví dụ: 192.168.1.0/24, 10.0.0.5"/>
+                    <Property name="text" type="java.lang.String" value="IP m&#xe1;y &#x111;&#x1b0;&#x1ee3;c ph&#xe9;p:"/>
+                    <Property name="toolTipText" type="java.lang.String" value="&#x110;&#x1ec3; tr&#x1ed1;ng = t&#x1ea5;t c&#x1ea3;. V&#xed; d&#x1ee5;: 192.168.1.0/24, 10.0.0.5"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtAllow">
                   <Properties>
-                    <Property name="toolTipText" type="java.lang.String" value="Để trống = tất cả. Ví dụ: 192.168.1.0/24, 10.0.0.5"/>
+                    <Property name="toolTipText" type="java.lang.String" value="&#x110;&#x1ec3; tr&#x1ed1;ng = t&#x1ea5;t c&#x1ea3;. V&#xed; d&#x1ee5;: 192.168.1.0/24, 10.0.0.5"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnUsers">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Tài khoản khác..."/>
+                    <Property name="text" type="java.lang.String" value="T&#xe0;i kho&#x1ea3;n kh&#xe1;c..."/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUsersActionPerformed"/>
@@ -346,10 +349,11 @@
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Hệ thống"/>
+                    <TitledBorder title="H&#x1ec7; th&#x1ed1;ng"/>
                   </Border>
                 </Property>
               </Properties>
+
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -381,19 +385,19 @@
               <SubComponents>
                 <Component class="javax.swing.JCheckBox" name="chkTray">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Đóng cửa sổ thì chạy nền ở khay hệ thống"/>
-                    <Property name="toolTipText" type="java.lang.String" value="Khi proxy đang chạy, bấm X chỉ ẩn cửa sổ xuống khay hệ thống"/>
+                    <Property name="text" type="java.lang.String" value="&#x110;&#xf3;ng c&#x1eed;a s&#x1ed5; th&#xec; ch&#x1ea1;y n&#x1ec1;n &#x1edf; khay h&#x1ec7; th&#x1ed1;ng"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Khi proxy &#x111;ang ch&#x1ea1;y, b&#x1ea5;m X ch&#x1ec9; &#x1ea9;n c&#x1eed;a s&#x1ed5; xu&#x1ed1;ng khay h&#x1ec7; th&#x1ed1;ng"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JCheckBox" name="chkAutoProxy">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Tự bật proxy khi mở app"/>
+                    <Property name="text" type="java.lang.String" value="T&#x1ef1; b&#x1ead;t proxy khi m&#x1edf; app"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JCheckBox" name="chkWinStart">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Tự mở cùng Windows"/>
-                    <Property name="toolTipText" type="java.lang.String" value="Chỉ dùng được khi chạy từ file .exe hoặc .jar"/>
+                    <Property name="text" type="java.lang.String" value="T&#x1ef1; m&#x1edf; c&#xf9;ng Windows"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Ch&#x1ec9; d&#xf9;ng &#x111;&#x1b0;&#x1ee3;c khi ch&#x1ea1;y t&#x1eeb; file .exe ho&#x1eb7;c .jar"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkWinStartActionPerformed"/>
@@ -403,7 +407,7 @@
             </Container>
             <Component class="javax.swing.JLabel" name="lblHint">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Đặt proxy trình duyệt là 127.0.0.1 và cổng đã chọn"/>
+                <Property name="text" type="java.lang.String" value="&#x110;&#x1eb7;t proxy tr&#xec;nh duy&#x1ec7;t l&#xe0; 127.0.0.1 v&#xe0; c&#x1ed5;ng &#x111;&#xe3; ch&#x1ecd;n"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -411,11 +415,12 @@
         <Container class="javax.swing.JPanel" name="pnlRules">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Quy tắc">
-                <Property name="tabTitle" type="java.lang.String" value="Quy tắc"/>
+              <JTabbedPaneConstraints tabName="Quy t&#x1eaf;c">
+                <Property name="tabTitle" type="java.lang.String" value="Quy t&#x1eaf;c"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
+
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
@@ -423,7 +428,7 @@
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lblBlock" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="scrollBlock" alignment="0" pref="320" max="32767" attributes="0"/>
+                          <Component id="scrollBlock" alignment="0" max="32767" attributes="0"/>
                           <Component id="btnSaveBlock" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
@@ -447,7 +452,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="lblBlock" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                              <Component id="scrollBlock" pref="300" max="32767" attributes="0"/>
+                              <Component id="scrollBlock" max="32767" attributes="0"/>
                               <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                               <Component id="btnSaveBlock" min="-2" pref="32" max="-2" attributes="0"/>
                           </Group>
@@ -474,7 +479,7 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="lblBlock">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Danh sách chặn (mỗi dòng một tên miền):"/>
+                <Property name="text" type="java.lang.String" value="Danh s&#xe1;ch ch&#x1eb7;n (m&#x1ed7;i d&#xf2;ng m&#x1ed9;t t&#xea;n mi&#x1ec1;n):"/>
               </Properties>
             </Component>
             <Container class="javax.swing.JScrollPane" name="scrollBlock">
@@ -494,7 +499,7 @@
             </Container>
             <Component class="javax.swing.JButton" name="btnSaveBlock">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Lưu danh sách chặn"/>
+                <Property name="text" type="java.lang.String" value="L&#x1b0;u danh s&#xe1;ch ch&#x1eb7;n"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSaveBlockActionPerformed"/>
@@ -502,7 +507,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnPublic">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Danh sách chặn công khai..."/>
+                <Property name="text" type="java.lang.String" value="Danh s&#xe1;ch ch&#x1eb7;n c&#xf4;ng khai..."/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPublicActionPerformed"/>
@@ -510,12 +515,12 @@
             </Component>
             <Component class="javax.swing.JLabel" name="lblPublicHint">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Nạp danh sách quảng cáo, theo dõi, mã độc từ file hoặc URL"/>
+                <Property name="text" type="java.lang.String" value="N&#x1ea1;p danh s&#xe1;ch qu&#x1ea3;ng c&#xe1;o, theo d&#xf5;i, m&#xe3; &#x111;&#x1ed9;c t&#x1eeb; file ho&#x1eb7;c URL"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btnRules">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Chỉ cho phép &amp; lịch chặn theo giờ..."/>
+                <Property name="text" type="java.lang.String" value="Ch&#x1ec9; cho ph&#xe9;p &amp; l&#x1ecb;ch ch&#x1eb7;n theo gi&#x1edd;..."/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRulesActionPerformed"/>
@@ -523,12 +528,12 @@
             </Component>
             <Component class="javax.swing.JLabel" name="lblRulesHint">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Chỉ cho vào một số trang, hoặc chặn theo giờ trong ngày"/>
+                <Property name="text" type="java.lang.String" value="Ch&#x1ec9; cho v&#xe0;o m&#x1ed9;t s&#x1ed1; trang, ho&#x1eb7;c ch&#x1eb7;n theo gi&#x1edd; trong ng&#xe0;y"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btnHttps">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Giải mã HTTPS..."/>
+                <Property name="text" type="java.lang.String" value="Gi&#x1ea3;i m&#xe3; HTTPS..."/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnHttpsActionPerformed"/>
@@ -536,7 +541,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="lblHttpsHint">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Thấy đường dẫn HTTPS để chặn theo đường dẫn, từ khóa"/>
+                <Property name="text" type="java.lang.String" value="Th&#x1ea5;y &#x111;&#x1b0;&#x1edd;ng d&#x1eab;n HTTPS &#x111;&#x1ec3; ch&#x1eb7;n theo &#x111;&#x1b0;&#x1edd;ng d&#x1eab;n, t&#x1eeb; kh&#xf3;a"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -544,11 +549,12 @@
         <Container class="javax.swing.JPanel" name="pnlLog">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Nhật ký">
-                <Property name="tabTitle" type="java.lang.String" value="Nhật ký"/>
+              <JTabbedPaneConstraints tabName="Nh&#x1ead;t k&#xfd;">
+                <Property name="tabTitle" type="java.lang.String" value="Nh&#x1ead;t k&#xfd;"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
+
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
@@ -558,7 +564,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="lblFilter" min="-2" pref="40" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                              <Component id="txtFilter" pref="240" max="32767" attributes="0"/>
+                              <Component id="txtFilter" max="32767" attributes="0"/>
                               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                               <Component id="chkBlockedOnly" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
@@ -566,7 +572,7 @@
                               <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                               <Component id="btnExport" min="-2" pref="120" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="scrollLog" alignment="0" pref="700" max="32767" attributes="0"/>
+                          <Component id="scrollLog" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   </Group>
@@ -593,17 +599,17 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="lblFilter">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Lọc:"/>
+                <Property name="text" type="java.lang.String" value="L&#x1ecd;c:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtFilter">
               <Properties>
-                <Property name="toolTipText" type="java.lang.String" value="Gõ tên miền, địa chỉ hoặc tên người dùng"/>
+                <Property name="toolTipText" type="java.lang.String" value="G&#xf5; t&#xea;n mi&#x1ec1;n, &#x111;&#x1ecb;a ch&#x1ec9; ho&#x1eb7;c t&#xea;n ng&#x1b0;&#x1edd;i d&#xf9;ng"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JCheckBox" name="chkBlockedOnly">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Chỉ hiện dòng bị chặn"/>
+                <Property name="text" type="java.lang.String" value="Ch&#x1ec9; hi&#x1ec7;n d&#xf2;ng b&#x1ecb; ch&#x1eb7;n"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkBlockedOnlyActionPerformed"/>
@@ -611,7 +617,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnClearLog">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Xóa nhật ký"/>
+                <Property name="text" type="java.lang.String" value="X&#xf3;a nh&#x1ead;t k&#xfd;"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnClearLogActionPerformed"/>
@@ -619,7 +625,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnExport">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Xuất CSV"/>
+                <Property name="text" type="java.lang.String" value="Xu&#x1ea5;t CSV"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExportActionPerformed"/>
@@ -641,11 +647,12 @@
         <Container class="javax.swing.JPanel" name="pnlStats">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Thống kê">
-                <Property name="tabTitle" type="java.lang.String" value="Thống kê"/>
+              <JTabbedPaneConstraints tabName="Th&#x1ed1;ng k&#xea;">
+                <Property name="tabTitle" type="java.lang.String" value="Th&#x1ed1;ng k&#xea;"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
+
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
@@ -653,7 +660,7 @@
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lblChart" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="pnlChart" alignment="0" pref="700" max="32767" attributes="0"/>
+                          <Component id="pnlChart" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="lblClients" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -673,7 +680,7 @@
                               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="lblTop" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="scrollTop" alignment="0" pref="260" max="32767" attributes="0"/>
+                                  <Component id="scrollTop" alignment="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -692,7 +699,7 @@
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       <Component id="lblChart" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                      <Component id="pnlChart" pref="170" max="32767" attributes="0"/>
+                      <Component id="pnlChart" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lblClients" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -726,7 +733,7 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="lblChart">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Lưu lượng 5 phút gần nhất (tải xuống / tải lên):"/>
+                <Property name="text" type="java.lang.String" value="L&#x1b0;u l&#x1b0;&#x1ee3;ng 5 ph&#xfa;t g&#x1ea7;n nh&#x1ea5;t (t&#x1ea3;i xu&#x1ed1;ng / t&#x1ea3;i l&#xea;n):"/>
               </Properties>
             </Component>
             <Container class="javax.swing.JPanel" name="pnlChart">
@@ -749,12 +756,12 @@
             </Container>
             <Component class="javax.swing.JLabel" name="lblClients">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Theo máy khách:"/>
+                <Property name="text" type="java.lang.String" value="Theo m&#xe1;y kh&#xe1;ch:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblUsers">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Theo người dùng:"/>
+                <Property name="text" type="java.lang.String" value="Theo ng&#x1b0;&#x1edd;i d&#xf9;ng:"/>
               </Properties>
             </Component>
             <Container class="javax.swing.JScrollPane" name="scrollClients">
@@ -781,12 +788,12 @@
             </Container>
             <Component class="javax.swing.JLabel" name="lblAlerts">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Cảnh báo (mới nhất ở dưới):"/>
+                <Property name="text" type="java.lang.String" value="C&#x1ea3;nh b&#xe1;o (m&#x1edb;i nh&#x1ea5;t &#x1edf; d&#x1b0;&#x1edb;i):"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblTop">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Tên miền truy cập nhiều nhất:"/>
+                <Property name="text" type="java.lang.String" value="T&#xea;n mi&#x1ec1;n truy c&#x1ead;p nhi&#x1ec1;u nh&#x1ea5;t:"/>
               </Properties>
             </Component>
             <Container class="javax.swing.JScrollPane" name="scrollAlerts">
@@ -823,7 +830,7 @@
             </Container>
             <Component class="javax.swing.JButton" name="btnClearAlerts">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Xóa cảnh báo"/>
+                <Property name="text" type="java.lang.String" value="X&#xf3;a c&#x1ea3;nh b&#xe1;o"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnClearAlertsActionPerformed"/>
@@ -831,7 +838,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnReset">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Đặt lại thống kê"/>
+                <Property name="text" type="java.lang.String" value="&#x110;&#x1eb7;t l&#x1ea1;i th&#x1ed1;ng k&#xea;"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnResetActionPerformed"/>
@@ -847,6 +854,7 @@
           <BorderConstraints direction="South"/>
         </Constraint>
       </Constraints>
+
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
@@ -863,8 +871,7 @@
                   <Component id="lblUp" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   <Component id="lblFail" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -888,32 +895,32 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="lblReq">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Yêu cầu: 0"/>
+            <Property name="text" type="java.lang.String" value="Y&#xea;u c&#x1ea7;u: 0"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblBlocked">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Bị chặn: 0"/>
+            <Property name="text" type="java.lang.String" value="B&#x1ecb; ch&#x1eb7;n: 0"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblConn">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Kết nối: 0"/>
+            <Property name="text" type="java.lang.String" value="K&#x1ebf;t n&#x1ed1;i: 0"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblDown">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Tải xuống: 0 B"/>
+            <Property name="text" type="java.lang.String" value="T&#x1ea3;i xu&#x1ed1;ng: 0 B"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblUp">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Tải lên: 0 B"/>
+            <Property name="text" type="java.lang.String" value="T&#x1ea3;i l&#xea;n: 0 B"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblFail">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Sai mật khẩu: 0"/>
+            <Property name="text" type="java.lang.String" value="Sai m&#x1ead;t kh&#x1ea9;u: 0"/>
           </Properties>
         </Component>
       </SubComponents>
