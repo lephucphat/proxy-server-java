@@ -199,22 +199,6 @@ public interface HttpProxyServerBootstrap {
 
     /**
      * <p>
-     * Specify whether or not to use secure DNS lookups for outbound
-     * connections.
-     * </p>
-     * 
-     * <p>
-     * Default = false
-     * </p>
-     * 
-     * @param useDnsSec
-     * @return
-     */
-    HttpProxyServerBootstrap withUseDnsSec(
-            boolean useDnsSec);
-
-    /**
-     * <p>
      * Specify whether or not to run this proxy as a transparent proxy.
      * </p>
      * 

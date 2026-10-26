@@ -13,13 +13,11 @@ import io.netty.channel.group.ChannelGroup;
 import io.netty.channel.group.ChannelGroupFuture;
 import io.netty.channel.group.DefaultChannelGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-import io.netty.channel.udt.nio.NioUdtProvider;
 import io.netty.handler.traffic.GlobalTrafficShapingHandler;
 import io.netty.util.concurrent.GlobalEventExecutor;
 import org.littleshoot.proxy.ActivityTracker;
 import org.littleshoot.proxy.ChainedProxyManager;
 import org.littleshoot.proxy.DefaultHostResolver;
-import org.littleshoot.proxy.DnsSecServerResolver;
 import org.littleshoot.proxy.HostResolver;
 import org.littleshoot.proxy.HttpFilters;
 import org.littleshoot.proxy.HttpFiltersSource;
@@ -529,12 +527,6 @@ public class DefaultHttpProxyServer implements HttpProxyServer {
                     }
                 });
                 break;
-            case UDT:
-                LOG.info("Proxy listening with UDT transport");
-                serverBootstrap.channelFactory(NioUdtProvider.BYTE_ACCEPTOR)
-                        .option(ChannelOption.SO_BACKLOG, 10)
-                        .option(ChannelOption.SO_REUSEADDR, true);
-                break;
             default:
                 throw new UnknownTransportProtocolException(transportProtocol);
         }
@@ -677,8 +669,7 @@ public class DefaultHttpProxyServer implements HttpProxyServer {
         }
 
         private DefaultHttpProxyServerBootstrap(Properties props) {
-            this.withUseDnsSec(ProxyUtils.extractBooleanDefaultFalse(
-                    props, "dnssec"));
+            this.serverResolver = new DefaultHostResolver();
             this.transparent = ProxyUtils.extractBooleanDefaultFalse(
                     props, "transparent");
             this.idleConnectionTimeout = ProxyUtils.extractInt(props,
@@ -794,16 +785,6 @@ public class DefaultHttpProxyServer implements HttpProxyServer {
         public HttpProxyServerBootstrap withFiltersSource(
                 HttpFiltersSource filtersSource) {
             this.filtersSource = filtersSource;
-            return this;
-        }
-
-        @Override
-        public HttpProxyServerBootstrap withUseDnsSec(boolean useDnsSec) {
-            if (useDnsSec) {
-                this.serverResolver = new DnsSecServerResolver();
-            } else {
-                this.serverResolver = new DefaultHostResolver();
-            }
             return this;
         }
 
