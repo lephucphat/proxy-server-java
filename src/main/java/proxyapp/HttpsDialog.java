@@ -193,8 +193,8 @@ public class HttpsDialog extends javax.swing.JDialog {
 
     private void btnExportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportActionPerformed
         try {
-            java.io.File keyFile = AppDir.file(config.caFile);
-            java.io.File certFile = AppDir.file(config.caCertFile);
+            java.io.File keyFile = AppDir.file(config.caFile).getCanonicalFile();
+            java.io.File certFile = AppDir.file(config.caCertFile).getCanonicalFile();
             CertificateAuthority ca = CertificateAuthority.loadOrCreate(keyFile);
             ca.exportCertificate(certFile);
             Object[] options = {"Mở thư mục", "Đóng"};
@@ -216,8 +216,10 @@ public class HttpsDialog extends javax.swing.JDialog {
         java.io.File file = certFile.getAbsoluteFile();
         java.io.File dir = file.getParentFile();
         try {
+            file = file.getCanonicalFile();
+            dir = file.getParentFile();
             if (SystemProxy.isSupported() && file.isFile()) {
-                new ProcessBuilder("explorer.exe", "/select," + file.getPath()).start();
+                new ProcessBuilder("explorer.exe", "/select,", file.getPath()).start();
                 return;
             }
             if (!java.awt.Desktop.isDesktopSupported()) {
