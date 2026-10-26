@@ -815,6 +815,7 @@ public class MainFrame extends javax.swing.JFrame {
             service.start(config);
             config.save(configFile);
             txtPass.setText("");
+            updatePasswordHint();
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "Không thể bật proxy: " + ex.getMessage(), "Lỗi", JOptionPane.ERROR_MESSAGE);
         }
@@ -1033,6 +1034,12 @@ public class MainFrame extends javax.swing.JFrame {
         }
     }
 
+    private void updatePasswordHint() {
+        txtPass.putClientProperty("JTextField.placeholderText",
+                config.hasPassword() ? "Đã lưu mật khẩu (để trống = giữ nguyên)" : "Chưa đặt mật khẩu");
+        txtPass.repaint();
+    }
+
     private void addHeaderTips(final javax.swing.JTable table, final boolean log) {
         final javax.swing.table.JTableHeader header = table.getTableHeader();
         header.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -1215,7 +1222,7 @@ public class MainFrame extends javax.swing.JFrame {
         setupLogCopy();
         setupHints();
         setupHelpMenu();
-        txtPass.putClientProperty("JTextField.placeholderText", "Để trống = giữ mật khẩu cũ");
+        updatePasswordHint();
         updateRunState();
     }
 
