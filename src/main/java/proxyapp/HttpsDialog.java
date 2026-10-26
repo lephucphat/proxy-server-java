@@ -203,7 +203,7 @@ public class HttpsDialog extends javax.swing.JDialog {
                     + "Giữ kín file " + keyFile.getName() + ", không gửi cho ai.",
                     "Đã tạo chứng chỉ", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
             if (choice == 0) {
-                showCertificateFile(certFile);
+                FileLocator.show(this, certFile);
             }
         } catch (java.security.GeneralSecurityException ex) {
             JOptionPane.showMessageDialog(this, "Không tạo được chứng chỉ: " + ex.getMessage(), "Lỗi", JOptionPane.ERROR_MESSAGE);
@@ -212,27 +212,8 @@ public class HttpsDialog extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_btnExportActionPerformed
 
-    private void showCertificateFile(java.io.File certFile) {
-        java.io.File file = certFile.getAbsoluteFile();
-        java.io.File dir = file.getParentFile();
-        try {
-            file = file.getCanonicalFile();
-            dir = file.getParentFile();
-            if (SystemProxy.isSupported() && file.isFile()) {
-                new ProcessBuilder("explorer.exe", "/select,", file.getPath()).start();
-                return;
-            }
-            if (!java.awt.Desktop.isDesktopSupported()) {
-                throw new java.io.IOException("Máy này không hỗ trợ mở thư mục từ chương trình");
-            }
-            java.awt.Desktop.getDesktop().open(dir);
-        } catch (java.io.IOException ex) {
-            JOptionPane.showMessageDialog(this, "Không mở được thư mục " + dir + ": " + ex.getMessage(), "Lỗi", JOptionPane.ERROR_MESSAGE);
-        }
-    }
-
     private void btnFolderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFolderActionPerformed
-        showCertificateFile(AppDir.file(config.caCertFile));
+        FileLocator.show(this, AppDir.file(config.caCertFile));
     }//GEN-LAST:event_btnFolderActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed

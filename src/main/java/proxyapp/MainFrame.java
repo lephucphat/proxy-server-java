@@ -904,8 +904,14 @@ public class MainFrame extends javax.swing.JFrame {
         fc.setSelectedFile(new java.io.File("proxy-log.csv"));
         if (fc.showSaveDialog(this) == javax.swing.JFileChooser.APPROVE_OPTION) {
             try {
-                trafficLog.exportCsv(fc.getSelectedFile());
-                JOptionPane.showMessageDialog(this, "Đã xuất nhật ký ra " + fc.getSelectedFile().getAbsolutePath());
+                java.io.File saved = fc.getSelectedFile().getAbsoluteFile();
+                trafficLog.exportCsv(saved);
+                Object[] options = {"Mở thư mục", "Đóng"};
+                int choice = JOptionPane.showOptionDialog(this, "Đã xuất nhật ký ra:\n" + saved.getPath(),
+                        "Đã xuất nhật ký", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+                if (choice == 0) {
+                    FileLocator.show(this, saved);
+                }
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(this, "Không xuất được: " + ex.getMessage(), "Lỗi", JOptionPane.ERROR_MESSAGE);
             }
