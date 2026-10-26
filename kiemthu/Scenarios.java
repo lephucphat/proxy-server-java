@@ -278,9 +278,10 @@ public class Scenarios extends GuiRobot {
         if (d != null) {
             click((JButton) field(d, "btnExport"));
             msg = waitOption();
-            check("Xuat chung chi -> thong bao co duong dan proxy-ca.crt", msg != null && msg.contains("proxy-ca.crt"), msg);
+            check("Xuat chung chi -> thong bao co duong dan proxy-ca.crt va nut 'Mo thu muc'", msg != null && msg.contains("proxy-ca.crt")
+                    && buttonWithText(findOptionDialog(), "Mở thư mục") != null, msg);
             if (msg != null) {
-                pressOption(0);
+                pressOption(1);
             }
             check("File proxy-ca.crt va proxy-ca.p12 duoc tao", new File(home, "proxy-ca.crt").isFile() && new File(home, "proxy-ca.p12").isFile(), "");
             click((JCheckBox) field(d, "chkMitm"));

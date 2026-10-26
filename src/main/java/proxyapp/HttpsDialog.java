@@ -197,8 +197,14 @@ public class HttpsDialog extends javax.swing.JDialog {
             java.io.File certFile = AppDir.file(config.caCertFile);
             CertificateAuthority ca = CertificateAuthority.loadOrCreate(keyFile);
             ca.exportCertificate(certFile);
-            JOptionPane.showMessageDialog(this, "Đã tạo chứng chỉ gốc để cài vào máy khách:\n" + certFile.getAbsolutePath()
-                    + "\n\nGiữ kín file khóa " + keyFile.getAbsolutePath() + " (không gửi cho ai).");
+            Object[] options = {"Mở thư mục", "Đóng"};
+            int choice = JOptionPane.showOptionDialog(this, "Đã tạo chứng chỉ gốc:\n" + certFile.getAbsolutePath()
+                    + "\n\nBấm đúp file " + certFile.getName() + " để cài vào Windows (không phải file " + keyFile.getName() + ").\n"
+                    + "Giữ kín file " + keyFile.getName() + ", không gửi cho ai.",
+                    "Đã tạo chứng chỉ", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+            if (choice == 0) {
+                showCertificateFile(certFile);
+            }
         } catch (java.security.GeneralSecurityException ex) {
             JOptionPane.showMessageDialog(this, "Không tạo được chứng chỉ: " + ex.getMessage(), "Lỗi", JOptionPane.ERROR_MESSAGE);
         } catch (java.io.IOException ex) {
@@ -206,9 +212,14 @@ public class HttpsDialog extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_btnExportActionPerformed
 
-    private void btnFolderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFolderActionPerformed
-        java.io.File dir = AppDir.file(config.caCertFile).getAbsoluteFile().getParentFile();
+    private void showCertificateFile(java.io.File certFile) {
+        java.io.File file = certFile.getAbsoluteFile();
+        java.io.File dir = file.getParentFile();
         try {
+            if (SystemProxy.isSupported() && file.isFile()) {
+                new ProcessBuilder("explorer.exe", "/select," + file.getPath()).start();
+                return;
+            }
             if (!java.awt.Desktop.isDesktopSupported()) {
                 throw new java.io.IOException("Máy này không hỗ trợ mở thư mục từ chương trình");
             }
@@ -216,6 +227,10 @@ public class HttpsDialog extends javax.swing.JDialog {
         } catch (java.io.IOException ex) {
             JOptionPane.showMessageDialog(this, "Không mở được thư mục " + dir + ": " + ex.getMessage(), "Lỗi", JOptionPane.ERROR_MESSAGE);
         }
+    }
+
+    private void btnFolderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFolderActionPerformed
+        showCertificateFile(AppDir.file(config.caCertFile));
     }//GEN-LAST:event_btnFolderActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
